@@ -9,7 +9,8 @@
   "scripts": {
     "start": "rollup -c --watch",
     "prebuild": "rm -rf build",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublish": "npm run build"
   },
   "main": "build/react-lexicon.cjs.js",
   "jsnext:main": "build/react-lexicon.es.js",
