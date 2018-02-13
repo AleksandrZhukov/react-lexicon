@@ -4,10 +4,11 @@ import createLexicon from './createLexicon';
 
 export default class LexiconProvider extends React.PureComponent {
   getChildContext() {
-    const { lexicons, fallback } = this.props;
+    const { lexicons, fallback, executorName } = this.props;
     return {
       lexicon: createLexicon(lexicons, fallback),
-      locale: lexicons.locale
+      locale: lexicons.locale,
+      executorName
     }
   }
 
@@ -21,7 +22,13 @@ LexiconProvider.propTypes = {
   fallback: PropTypes.string
 };
 
+LexiconProvider.defaultProps = {
+  fallback: '',
+  executorName: 'l'
+};
+
 LexiconProvider.childContextTypes = {
   lexicon: PropTypes.func.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  executorName: PropTypes.string
 };

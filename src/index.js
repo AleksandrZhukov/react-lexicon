@@ -1,2 +1,2 @@
-export default from './lexicon';
-export LexiconProvider from './LexiconProvider';
+export { default as default }  from './lexicon';
+export { default as LexiconProvider } from './LexiconProvider';

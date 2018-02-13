@@ -1,4 +1,4 @@
 # react-lexicon
 
-> Simple internationalization for react
+> Simple Internationalization for react
 

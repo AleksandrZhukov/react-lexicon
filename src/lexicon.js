@@ -9,16 +9,17 @@ export default function lexicon(displayName) {
     return class Lexicon extends React.PureComponent {
       static contextTypes = {
         lexicon: PropTypes.func.isRequired,
-        locale: PropTypes.string.isRequired
+        locale: PropTypes.string.isRequired,
+        executorName: PropTypes.string
       };
 
       render() {
-        const { lexicon, locale } = this.context;
+        const { lexicon, locale, executorName } = this.context;
         if (locale !== previousLocale) {
           l = lexicon(lexicons);
           previousLocale = locale
         }
-        return <ChildComponent {...this.props} l={l} t={l} />;
+        return <ChildComponent {...this.props} {...{[executorName]: l }} />;
       }
     };
   }
